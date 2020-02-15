@@ -18,6 +18,6 @@ export class ProblemListComponent implements OnInit {
   }
 
   getProblems() {
-    this.problems = PROBLEMS;
+     this.problems = PROBLEMS;
   }
 }
