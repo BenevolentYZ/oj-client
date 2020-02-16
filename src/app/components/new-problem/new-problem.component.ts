@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Problem } from '../../models/problem.model';
+import { DataService } from '../../services/data.service';
 
 @Component({
   selector: 'app-new-problem',
