@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Problem } from '../../models/problem.model';
-import { PROBLEMS } from '../../mock-problems';
+import { DataService } from '../../services/data.service';
 
 @Component({
   selector: 'app-problem-list',
@@ -11,13 +11,13 @@ export class ProblemListComponent implements OnInit {
 
   problems: Problem[];
 
-  constructor() { }
+  constructor(private dataService: DataService) { }
 
   ngOnInit() {
     this.getProblems();
   }
 
   getProblems() {
-     this.problems = PROBLEMS;
+     this.problems = this.dataService.getProblems();
   }
 }
