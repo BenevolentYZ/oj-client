@@ -5,7 +5,7 @@ import { PROBLEMS } from '../mock-problems';
 @Injectable({
   providedIn: 'root'
 })
-export class DateService {
+export class DataService {
   problems: Problem[] = PROBLEMS;
 
   constructor() { }
@@ -15,6 +15,6 @@ export class DateService {
   }
 
   getProblem(id: number): Problem {
-    return this.problems.find((problem) => problem.id === id);
+    return this.problems.find( (problem) => problem.id === id);
   }
 }
