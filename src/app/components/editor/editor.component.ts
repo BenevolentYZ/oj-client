@@ -7,7 +7,13 @@ declare var ace: any;
   styleUrls: ['./editor.component.css']
 })
 export class EditorComponent implements OnInit {
+
   editor: any;
+
+  public languages: string[] = ['Java', 'Python'];
+
+  language: string = 'Java';
+
   defaultContent = {
     'Java': `public class Example {
       public static void main(String[] args) {
@@ -24,8 +30,21 @@ export class EditorComponent implements OnInit {
   ngOnInit() {
     this.editor = ace.edit("editor");
     this.editor.setTheme("ace/theme/eclipse");
-    this.editor.getSession().setMode('ace/mode/java');
-    this.editor.setValue(this.defaultContent["Java"]);
+    this.resetEditor();
   }
 
+  resetEditor(): void {
+    this.editor.getSession().setMode('ace/mode/' + this.language.toLowerCase());
+    this.editor.setValue(this.defaultContent[this.language]);
+  }
+
+  setLanguage(language: string): void {
+    this.language = language;
+    this.resetEditor();
+  }
+
+  submit(): void {
+    let userCode = this.editor.getValue();
+    console.log(userCode);
+  }
 }
