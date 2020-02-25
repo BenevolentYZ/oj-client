@@ -45,7 +45,7 @@ export class DataService {
 
   buildAndRun(data): Promise<any> {
     const options = { headers: new HttpHeaders({'Content-Type': 'application/json'})};
-    return this.httpClient.post('api/v1/build_and_run', data, options)
+    return this.httpClient.post('build_and_run', data, options)
                 .toPromise()
                 .then((res: any) => {
                   console.log(res);
